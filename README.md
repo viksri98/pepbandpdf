@@ -1,8 +1,9 @@
 # PepBandPDF converter
 
 ## Requirements
--- Musescore
--- ImageMagick
+
+- Musescore
+- ImageMagick
 
 ## Usage
 pepbandpdf.sh [file] [output]  
