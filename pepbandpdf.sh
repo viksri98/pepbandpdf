@@ -10,7 +10,7 @@ sed -e '
 ' $score > temp.mscx
 
 mkdir out
-musescore -i temp.mscx -j job.json
+musescore -j job.json
 rm temp.mscx
 
 cd out
@@ -21,5 +21,5 @@ for file in *.png; do
 		rm $file
 done
 cd ..
-mv out "${score}dir"
+mv out $2
 exit 0
