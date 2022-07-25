@@ -2,6 +2,10 @@
 
 score=$1
 
+if [ -z $3 ]; then
+		echo "$(sed "s|<Spatium>.*<[/]Spatium>|<Spatium>$3</Spatium>|" style.xml)" > style.xml	
+fi
+
 sed -e '
   /<Style>/,/<[/]Style>/!b
   //!d;/<[/]Style>/!b
@@ -21,5 +25,6 @@ for file in *.png; do
 		rm $file
 done
 cd ..
+echo "$(sed "s|<Spatium>.*<[/]Spatium>|<Spatium>1.15</Spatium>|" style.xml)" > style.xml	
 mv out $2
 exit 0
