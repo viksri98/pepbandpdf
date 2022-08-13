@@ -1,6 +1,0 @@
-[
-		{
-				"in": "temp.mscx",
-				"out": [["out\temp_image", ".png"]]
-		}
-]
