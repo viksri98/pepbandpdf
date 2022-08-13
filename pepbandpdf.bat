@@ -20,9 +20,9 @@ del temp.mscx
 
 cd out
 for %I in (*.png) do (
-		magick convert %I -rotate -180 "r-%I"
-		magick convert %I "r-%I" -smush 80 "%I.pdf"
-		del "r-%I"
+		magick convert %I -rotate -180 r.png
+		magick convert %I r.png -smush 80 "%I.pdf"
+		del r.png
 		del %I
 )
 cd ..
