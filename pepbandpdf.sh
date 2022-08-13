@@ -4,7 +4,6 @@ score=$1
 
 if [ -n $3 ]; then
 		echo "$(sed "s|<Spatium>.*<[/]Spatium>|<Spatium>$3</Spatium>|" style.xml)" > style.xml	
-		cat style.xml
 fi
 
 sed -e '
