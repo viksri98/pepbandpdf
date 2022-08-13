@@ -1,11 +1,9 @@
 @echo off
 
-for %I in (*) do (
-	if "%~xI" == ".png" (
-		echo "Processing %I"
-		magick convert %I -rotate -180 r.png
-		magick convert %I r.png -smush 80 "%~nI.pdf"
+for %i in (*.png) do (
+		echo "Processing %i"
+		magick convert %i -rotate -180 r.png
+		magick convert %i r.png -smush 80 "%i.pdf"
 		del r.png
-		del %I
-	)
+		del %i
 )
