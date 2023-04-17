@@ -19,7 +19,7 @@ rm temp1.mscx
 
 mkdir out
 musescore -j job.json
-#rm temp.mscx
+rm temp.mscx
 
 cd out
 for file in *.png; do
