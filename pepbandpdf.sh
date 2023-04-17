@@ -1,6 +1,7 @@
 #!/bin/bash
 
 score=$1
+offset=$4
 
 if [ -n $3 ]; then
 		sed -i "s|<Spatium>.*<[/]Spatium>|<Spatium>$3</Spatium>|" style.xml
@@ -11,7 +12,10 @@ sed -e '
   //!d;/<[/]Style>/!b
   r style.xml
   N
-' $score > temp.mscx
+' $score > temp1.mscx
+
+sed -e '/Lyricist/{n; s/x="[0-9]\+/x="'$offset'/}' temp1.mscx > temp.mscx
+rm temp1.mscx
 
 mkdir out
 musescore -j job.json
