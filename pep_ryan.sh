@@ -2,17 +2,7 @@
 
 score=$1
 
-if [ -n $3 ]; then
-		sed -i "s|<Spatium>.*<[/]Spatium>|<Spatium>$3</Spatium>|" style.xml
-fi
-
-sed -e '
-  /<Style>/,/<[/]Style>/!b
-  //!d;/<[/]Style>/!b
-  r style.xml
-  N
-' $score > temp.mscx
-
+cp $1 temp.mscx
 
 mkdir out
 musescore -j job.json
