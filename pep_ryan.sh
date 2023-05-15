@@ -2,20 +2,20 @@
 
 score=$1
 
-cp $1 temp.mscx
+#cp $1 temp.mscx
 
-mkdir out
-musescore -j job.json
-rm temp.mscx
+#mkdir out
+#musescore -j job.json
+#rm temp.mscx
 
-cd out
+cd $1
 for file in *.png; do
 		convert $file -rotate -180 "r-$file"
-		convert $file "r-$file" -smush 80 "$(sed 's/.png//' <<< $file).pdf"
+		convert $file "r-$file" -smush 5 "$(sed 's/.png//' <<< $file).pdf"
 		rm "r-$file"
 		rm $file
 done
 cd ..
-sed -i "s|<Spatium>.*<[/]Spatium>|<Spatium>1.15</Spatium>|" style.xml
-mv out $2
+#sed -i "s|<Spatium>.*<[/]Spatium>|<Spatium>1.15</Spatium>|" style.xml
+#mv out $2
 exit 0
